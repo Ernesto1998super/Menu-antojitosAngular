@@ -1,0 +1,108 @@
+<div class="container">
+    <h4>Registrar de Platillos</h4>
+    <hr>
+</div>
+
+<form (ngSubmit)="saveMenu(forma)" #forma="ngForm" novalidate="" enctype="multipart/form-data">
+    <div class="form-group-sm small">
+
+        <div class="row">
+            <div class="form-group col-md-12">
+
+                <div>
+                    <input [class.is-invalid]="strNombre.invalid && strNombre.touched" class="form-control form-control-sm" type="text " placeholder="Nombre de categoria" name="strNombre" [(ngModel)]="behavior.strNombre" required #strNombre="ngModel">
+                    <div class="invalid-feedback" *ngIf="strNombre.errors?.required">
+                        <small>
+                          Es necesario ingresar un nombre.
+                      </small>
+
+                    </div>
+                </div>
+
+
+                <div class="mt-2">
+                    <textarea [class.is-invalid]="strDescripcion.invalid && strDescripcion.touched" name="strDescripcion" class="form-control form-control-sm" rows="3" maxlength="300" placeholder="Detalles" [(ngModel)]="behavior.strDescripcion" required #strDescripcion="ngModel"></textarea>
+                    <div class="invalid-feedback" *ngIf="strDescripcion.errors?.required">
+                        <small>
+                          Es necesario ingresar la descripción.
+                      </small>
+                    </div>
+                </div>
+
+
+                <!-- <div>
+                    <input [class.is-invalid]="strDescripcion.invalid && strDescripcion.touched" class="form-control form-control-sm mt-2" type="text " placeholder="Descripcion" name="strDescripcion" [(ngModel)]="behavior.strDescripcion" #strDescripcion="ngModel">
+                   
+                    <div class="invalid-feedback" *ngIf="strDescripcion.errors?.required">
+                        <small>
+                      Es necesario ingresar una descripcion.
+                  </small>
+                    </div>
+                </div> -->
+
+                <!-- <div>
+                    <input [class.is-invalid]="strIngredientes.invalid && strIngredientes.touched" class="form-control form-control-sm  mt-2" type="text " placeholder="Ingredientes" name="strIngredientes" [(ngModel)]="behavior.strIngredientes" #strIngredientes="ngModel">
+                    
+                    <div class="invalid-feedback" *ngIf="strIngredientes.errors?.required">
+                        <small>
+                    Es necesario ingresar los ingredientes.
+                </small>
+                    </div>
+                </div>
+ -->
+
+                <div class="mt-2">
+                    <textarea [class.is-invalid]="strIngredientes.invalid && strIngredientes.touched" name="strIngredientes" class="form-control form-control-sm" rows="3" maxlength="300" placeholder="Ingredientes" [(ngModel)]="behavior.strIngredientes" required #strIngredientes="ngModel"></textarea>
+                    <div class="invalid-feedback" *ngIf="strIngredientes.errors?.required">
+                        <small>
+          Es necesario ingresar los ingredientes.
+      </small>
+                    </div>
+                </div>
+
+
+
+                <div>
+                    <input [class.is-invalid]="nmbPiezas.invalid && nmbPiezas.touched" class="form-control form-control-sm mt-2" type="number" placeholder="Número de piezas" name="nmbPiezas" [(ngModel)]="behavior.nmbPiezas" #nmbPiezas="ngModel">
+                    <!--disabled-->
+                    <div class="invalid-feedback" *ngIf="nmbPiezas.errors?.required">
+                        <small>
+                  Es necesario ingresar las piezas.
+              </small>
+                    </div>
+                </div>
+
+
+                <div>
+                    <input [class.is-invalid]="nmbPrecio.invalid && nmbPrecio.touched" class="form-control form-control-sm mt-2" type="number" placeholder="Precio" name="nmbPrecio" [(ngModel)]="behavior.nmbPrecio" #nmbPrecio="ngModel">
+                    <!--disabled-->
+                    <div class="invalid-feedback" *ngIf="nmbPrecio.errors?.required">
+                        <small>
+                Es necesario ingresar el precio.
+            </small>
+                    </div>
+                </div>
+
+                <div class="mt-2">
+                    <select [class.is-invalid]="blnStatus.invalid && blnStatus.touched" class="custom-select form-control form-control-sm" type="text" name="blnStatus" [(ngModel)]="behavior.blnStatus" required #blnStatus="ngModel">
+                      <option [ngValue]="true" hidden>Activo</option>
+                      <option [ngValue]=false>Inactivo</option>
+                    </select>
+                </div>
+
+                <div class="list-inline mt-3 text-right">
+                    <div class="list-inline-item">
+                        <div class="form-group row">
+                            <div class="mr-3">
+                                <button [routerLink]="['/career-report']" type="button " class="btn btn-outline-danger btn-sm mr-2 "><i class="fa fa-times mr-2"></i>Cancelar</button>
+                                <button [disabled]="forma.invalid" type="submit " class="btn btn-outline-info btn-sm "><i class="fa fa-save mr-2 "></i>Registrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</form>

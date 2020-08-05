@@ -1,0 +1,99 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <nav class="navbar navbar-light bg-light">
+                <a class="navbar-brand" href="#">
+                    <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+                    <h2>Antojitos mexicanos “Juanita y Don Miguel”</h2>
+                </a>
+            </nav>
+        </div>
+    </div><br>
+
+    <div class="row">
+        <div class="col-5">
+            <app-registrar-antojitos></app-registrar-antojitos>
+
+        </div>
+
+        <!-- <div class="row">
+            <div class="col-5">
+                <app-actualizar-antojitos></app-actualizar-antojitos>
+
+            </div> -->
+        <!-- TABLA -->
+        <div class="col-7">
+            <div class="card">
+                <div class="body ">
+                    <div class="row mb-3" *ngIf="!cargando">
+                        <div class="col-11">
+                            <div class="input-group">
+                                <input type="text" name="searchText" [(ngModel)]="searchText" class="form-control" placeholder="Buscar...">
+                            </div>
+                        </div>
+                        <div class="col-1 p-0">
+                            <button type="button" class="btn btn-primary"><i class="fa fa-ellipsis-h"></i></button>
+                            <div class="dropdown-menu dropdown-menu-right shadow-lg" aria-labelledby="dropdownReports">
+                                <div class="dropdown-header text-primary"><span class="text-xs text-uppercase">EXPORTAR</span></div>
+                                <div class="dropdown-item pdf"><i class="fa fa-file-pdf-o mr-2"></i>PDF</div>
+                                <div class="dropdown-item excel"><i class="fa fa-file-excel-o mr-2"></i>Excel</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="small" [ngClass]="{'table-responsive': !cargando}">
+                        <div class="row" *ngIf="cargando">
+                            <div class="col" style="text-align: center;">
+                                <h6><i class="fa fa-spinner fa-pulse"></i><br> Cargando
+                                </h6>
+                            </div>
+                        </div>
+
+                        <table *ngIf="!cargando" id="PDFTable" class="table table-hover table-borderless animated fadeIn">
+                            <thead>
+                                <tr class="border-bottom padding-interno">
+                                    <th>Nombre</th>
+                                    <th>Descripcion</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let a of antojitos">
+                                    <td>{{a.strNombre}}</td>
+                                    <td>{{a.strDesc}}</td>
+
+                                    <td class="text-center">
+                                        <div class="list-inline-item">
+                                            <div>
+                                                <button type="button" class="btn btn-primary" id="dropdownReports" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-h "></i></button>
+                                                <div class="dropdown-menu dropdown-menu-left shadow-lg " aria-labelledby="dropdownReports">
+                                                    <div class="dropdown-header text-primary "><span class="text-xs text-uppercase">OPCIONES</span>
+                                                    </div>
+                                                    <a class="dropdown-item excel"><i class="fa fa-edit mr-2"></i>Editar</a>
+                                                    <a class="dropdown-item pdf"><i class="fa fa-trash-o mr-2 "></i>Activar/Desactivar</a>
+                                                    <a class="dropdown-item excel" [routerLink]="['/gestion-platillos']"><i class="fa fa-edit mr-2 "></i>Gestionar platillos</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                <!-- <tr class="bg-white">
+                                    <td colspan="4" class="text-center">
+                                        <div class="alert alert-dismissible alert-light">
+                                            <h5 style="height: 100%;width: 100%;"><strong>¡No hay registros!</strong></h5>
+                                        </div>
+                                    </td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                        <div class="mt-4 float-right" *ngIf="!cargando">
+                            <!-- <pagination-controls (pageChange)="pageActual = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

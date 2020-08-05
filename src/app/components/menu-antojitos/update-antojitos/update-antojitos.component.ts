@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 
-import { BehaviorModel } from '../../../models/behavior.model';
+// import { BehaviorModel } from '../../../models/behavior.model';
 import { NgForm } from '@angular/forms';
 import { MenuAntojitosModel } from 'src/app/models/MenuAntojitos';
 import { MenuAntojitosComponent } from '../menu-antojitos.component';
